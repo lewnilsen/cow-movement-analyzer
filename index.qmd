@@ -1,0 +1,12 @@
+---
+title: "Cow Movement Analyzer"
+format: html
+---
+
+Welcome to the Cow Movement Analyzer project. This site contains:
+
+- KPI and anomaly analysis (Python)
+- SQL-based KPI view
+- R-based KPI validation and modeling
+
+All data is simulated. Designed for portfolio use.

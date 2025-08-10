@@ -1,0 +1,45 @@
+---
+title: "R Validation Report"
+format: html
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+
+# Load and prepare dataset
+df <- read.csv("../data/simulated_cow_data.csv")
+df$timestamp <- ymd_hms(df$timestamp)
+df$hour <- hour(df$timestamp)
+
+# Grazing % per cow per day
+grazing_summary <- df %>%
+  mutate(date = as.Date(timestamp)) %>%
+  group_by(cow_id, date) %>%
+  summarise(
+    grazing_rows = sum(is_grazing),
+    total_rows = n(),
+    grazing_pct_r = 100 * grazing_rows / total_rows,
+    .groups = "drop"
+  )
+
+# Simulate binary label
+set.seed(42)
+df$inside_break <- rbinom(nrow(df), 1, prob = 0.3 - 0.2 * df$speed_m_s)
+
+# Fit logistic model
+glm_fit <- glm(inside_break ~ speed_m_s + factor(hour), data = df, family = binomial())
+
+summary(glm_fit)
+
+ggplot(df, aes(x = factor(hour), fill = is_grazing)) +
+  geom_bar(position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    title = "Grazing Proportion by Hour",
+    x = "Hour of Day",
+    y = "Proportion Grazing",
+    fill = "Grazing?"
+  ) +
+  theme_minimal()

@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Cow Movement Analyzer"
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: R Report
+        href: r/report.qmd
+      - text: Notebook (nbviewer)
+        href: https://nbviewer.org/github/<your-username>/cow-movement-analyzer/blob/main/notebooks/01_kpi_analysis.ipynb
+
+format:
+  html:
+    toc: true
+    theme: cosmo
+    code-fold: true
