@@ -1,0 +1,14 @@
+# Data files
+data/*
+!data/README.md
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Quarto build
+_site/
+docs/
