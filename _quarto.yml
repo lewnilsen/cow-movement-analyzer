@@ -11,7 +11,7 @@ website:
       - text: R Report
         href: r/report.qmd
       - text: Notebook (nbviewer)
-        href: https://nbviewer.org/github/<your-username>/cow-movement-analyzer/blob/main/notebooks/01_kpi_analysis.ipynb
+        href: https://nbviewer.org/github/lewnilsen/cow-movement-analyzer/blob/main/notebooks/01_kpi_analysis.ipynb
 
 format:
   html:

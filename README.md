@@ -27,3 +27,5 @@ cow-movement-analyzer/
    pip install -r requirements.txt
 
 2. Generate data and run notebooks in notebooks/.
+
+3. View R report quarto render r/report.qmd
