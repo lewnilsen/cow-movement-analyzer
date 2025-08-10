@@ -14,6 +14,8 @@ library(lubridate)
 
 #Load dataset
 df <- read.csv("../data/simulated_cow_data.csv")
+df$is_grazing <- tolower(df$is_grazing) == "true"
+
 
 #Get hour of day from timestamp
 df$timestamp <- ymd_hms(df$timestamp)
@@ -34,6 +36,7 @@ grazing_summary <- df %>%
     .groups = "drop"
   )
 
+
 #Preview grazing summary
 head(grazing_summary)
 ```
@@ -41,7 +44,7 @@ head(grazing_summary)
 ##Hourly Grazing Behavior
 
 ```{r}
-# Plot grazing frequency by hour of day
+# Plot grazing state by hour of day
 ggplot(df, aes(x = factor(hour), fill = is_grazing)) +
   geom_bar(position = "fill") +
   scale_y_continuous(labels = scales::percent) +

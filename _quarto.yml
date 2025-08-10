@@ -10,8 +10,9 @@ website:
         href: index.qmd
       - text: R Report
         href: r/report.qmd
-      - text: Notebook (nbviewer)
-        href: https://nbviewer.org/github/lewnilsen/cow-movement-analyzer/blob/main/notebooks/01_kpi_analysis.ipynb
+      - text: Notebook (github)
+        href: https://github.com/lewnilsen/cow-movement-analyzer/blob/main/notebooks/01_kpi_analysis.ipynb
+        
 
 format:
   html:

@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 import numpy as np
 import pandas as pd
-
+import warnings
 
 # Calculates the distance between two GPS points in meters
 def haversine_m(lat1, lon1, lat2, lon2):
@@ -136,10 +136,13 @@ def simulate_gps_data(seed=42, num_cows=20, duration_minutes=1440, step_minutes=
             group = group.sample(frac=1 - drop_frac, random_state=seed)
             group = group.sort_values("timestamp")
             return group
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", category=FutureWarning)
+            df = df.groupby("cow_id", group_keys=False).apply(drop_random_rows)
 
-        df = df.groupby("cow_id", group_keys=False).apply(drop_random_rows)
         df = df.reset_index(drop=True)
         df = df.sort_values(["cow_id", "timestamp"])
+        
 
     #Metadata
     meta = {

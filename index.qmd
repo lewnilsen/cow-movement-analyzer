@@ -6,7 +6,22 @@ format: html
 Welcome to the Cow Movement Analyzer project. This site contains:
 
 - KPI and anomaly analysis (Python)
-- SQL-based KPI view
-- R-based KPI validation and modeling
+- SQL-based KPI view (within notebook)
+- R-based hourly grazing visualisation
 
-All data is simulated. Designed for portfolio use.
+Assumptions:
+Assumptions made for this showcase (not applicable in real-world scenarios):
+- All areas of the paddock are equal for grazing
+- Any time a cow is travelling less than 0.06m/s then it is grazing (even when asleep)
+- DM Intake rate per cow is 0.03kg/minute always when grazing
+
+Further insights:
+The sample I've generated for this is exclusively cow movement data, and would require additional data for better insights.
+- DM/kg is measured per cow based on an intake rate, but could be measured per paddock with data on intake rates across different paddocks
+- Grazing patterns could be analyzed with data on paddock
+- 
+
+Outliers:
+I've added some simulations of outlier data to show that I've considered these, but they're insignificant in terms of the overall dataset. 
+- Cow speed beyond biological capability - could showcase tracker malfunction.
+- Long gaps between data points - could indicate incomplete data if persistent.
