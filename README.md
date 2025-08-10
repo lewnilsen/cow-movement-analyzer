@@ -11,21 +11,12 @@ This mini-project simulates cow movement in a simulated break and explores three
 - **Data quality checks:** Identifying gaps, out-of-bounds positions, and anomalies.
 - **Communication:** Each KPI includes a short real-world interpretation.
 
-**Structure:**
-cow-movement-analyzer/
-├─ data/ # Generated data files (ignored in git)
-├─ notebooks/ # Analysis notebook & data generator
-├─ r/ # Quarto report
-├─ requirements.txt # Python dependencies
-├─ README.md # This file
-├─ _quarto.yml # Quarto config
-└─ index.qmd # Landing page for quarto site
-
 ## How to run
 1. Install dependencies:
    ```bash
    pip install -r requirements.txt
 
 2. Generate data and run notebooks in notebooks/.
+
 
 3. View R report quarto render r/report.qmd
